@@ -3,6 +3,7 @@ let lista = document.querySelector('select#flista')
 let res = document.querySelector('div#res')
 let valores = []
 
+
 function isNumero(n) {
     if(Number(n) >= 1 && Number(n) <= 100) {
         return true
@@ -19,10 +20,15 @@ function inLista(n, l) {
     }
 }
 
-function verificar(){
+function adicionar(){
     if(isNumero(num.value) && !inLista(num.value, valores)) {
-
+        valores.push(Number(num.value))
+        let item = document.createComment('option')
+        item.text = `Valor ${num.value} adicionado.`
+        lista.appendChild(item)
     } else {
         window.alert('Valores Inválidos ou já encontrado na lista')
     }
+    num.value = ''
+    num.focus()
 }
