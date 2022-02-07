@@ -13,7 +13,7 @@ function isNumero(n) {
 }
 
 function inLista(n, l) {
-    if(l.indexOF(Number(n)) != -1) {
+    if(l.indexOf(Number(n)) != -1) {
         return true
     } else {
         return false
@@ -23,7 +23,7 @@ function inLista(n, l) {
 function adicionar(){
     if(isNumero(num.value) && !inLista(num.value, valores)) {
         valores.push(Number(num.value))
-        let item = document.createComment('option')
+        let item = document.createElement('option')
         item.text = `Valor ${num.value} adicionado.`
         lista.appendChild(item)
     } else {
@@ -31,4 +31,8 @@ function adicionar(){
     }
     num.value = ''
     num.focus()
+}
+
+function finalizar() {
+    if(valores)
 }
